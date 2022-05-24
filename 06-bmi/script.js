@@ -16,5 +16,5 @@ calculateButton.addEventListener('click', function(){
    let bmi = weight / height ** 2;
 //    alert("Your bmi is" + bmi);
   let resultDiv = document.querySelector('#result');
-  resultDiv.innerText = "<h2>BMI: " + bmi +"</h2>";
+  resultDiv.innerHTML = "<h2>BMI: " + bmi +"</h2>";
 })
