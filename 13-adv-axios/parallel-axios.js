@@ -21,3 +21,35 @@ document.querySelector('#btnLoadParallel')
     document.querySelector('#content1').innerHTML = response1.data.text;
     document.querySelector('#content2').innerHTML = response2.data.text;
 })
+
+
+
+
+
+async function loadRequest1() {
+    let r = await axios.get('data1.json');
+    console.log(r.data);
+}
+
+async function loadRequest2() {
+    let r = await axios.get('data2.json');
+    console.log(r.data);
+}
+
+// how to do first come first served with await/async
+function run() {
+    loadRequest1();
+    loadRequest2();
+}
+
+// alternatively:
+function fcfs() {
+    // in the following cases, whichever request finishes
+    // first, it will get processed first
+    axios.get('data1.json').then(function(r){
+        console.log(r.data)
+    })
+    axios.get('data2.json').then(function(r){
+        console.log(r.data);
+    })
+}
